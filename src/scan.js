@@ -8,7 +8,7 @@ export default function Scan({ navigation }) {
     <View style={Container}>
       <Button
         Text='Scan Product'
-        onPress={() => navigation.navigate('ItemDetail')}
+        onPress={() => navigation.navigate('Scanner')}
       />  
     </View>
   );

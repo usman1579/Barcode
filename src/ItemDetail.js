@@ -9,6 +9,7 @@ import { SubHeading } from './Component/Button';
 
 export default function ItemDetail({ route }) {
 
+    const {type , data} = route.params;
     const { response, setresponse } = useState('')
     const { Loading, setLoading } = useState(false)
 
@@ -18,7 +19,6 @@ export default function ItemDetail({ route }) {
     }, [])
 
     const fetchProduct = () => {
-        let mounted = true;
         fetch(`${Api}${data}`, {
             method: "GET",
             headers: {
@@ -27,11 +27,8 @@ export default function ItemDetail({ route }) {
         })
             .then(res => res.json())
             .then(val => {
-
-                if (mounted) {
                     setresponse(val)
                     setLoading(true)
-                }
             }).catch(err => {
                 alert('error :', err)
             })
@@ -45,8 +42,6 @@ export default function ItemDetail({ route }) {
             </Text>
 
             <View style={styles.Box}>
-
-
 
                 {Loading ?
                     <ScrollView>
