@@ -1,0 +1,1 @@
+export const PD = 'Product Detail'
